@@ -1,4 +1,4 @@
-const { getUsersDB, getUserByIdDB, createUserDB, updateUserDB, deleteUserDB, patchUserDB } = require('../repository/repository.user')
+const { getUsersDB, getUserByIdDB, createUserDB, updateUserDB, deleteUserDB, patchUserDB } = require('../repository/user.repository')
 
 
 async function getUsers() {

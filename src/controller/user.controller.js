@@ -1,5 +1,5 @@
 const express = require('express')
-const { getUsers, getUserById, createUsers, updateUser, deleteUser, patchUser } = require('../services/services.user')
+const { getUsers, getUserById, createUsers, updateUser, deleteUser, patchUser } = require('../service/user.service')
 
 
 const route = express.Router()
@@ -23,7 +23,7 @@ route.get('/:id', async (req, res) => {
     }
 })
 
-route.post('/', isValidBody, async (req, res) => {
+route.post('/', async (req, res) => {
     try {
         const { name, age, email, phone } = req.body
         const user = await createUser(name, age, email, phone)
@@ -33,7 +33,7 @@ route.post('/', isValidBody, async (req, res) => {
     }
 })
 
-route.put('/:id', isValidBody, async (req, res) => {
+route.put('/:id', async (req, res) => {
     try {
         const { id } = req.params
         const { name, age, email, phone } = req.body
