@@ -1,40 +1,20 @@
-const { MongoClient, ObjectId } = require('mongodb')
-
-const MongoDBclient = new MongoClient('mongodb://127.0.0.1:27017')
+const { connect } = require('../db')
+const { ObjectId } = require('mongodb');
 
 async function getUsersDB() {
-    await MongoDBclient.connect()
-    const db = MongoDBclient.db('hschool');
-    const collection = db.collection('students');
-    const data = await collection.find().toArray()
-    return data
+    const { students } = await connect()
+    return await students.find().toArray();
+}
+async function getUserByIdDB(_id) {
+    const { students } = await connect()
+    return await students.findOne({ _id: new ObjectId(_id) });
 }
 
-async function getUserByIdDB(user_id) {
-    await MongoDBclient.connect()
-    const db = MongoDBclient.db('hschool');
-    const collection = db.collection('students');
-    const user = await collection.findOne({ _id: new ObjectId(user_id) });
-    return user;
-}
-
-async function createUsersDB(name, surname, birth, city, age) {
-
-}
-
-async function updateUsersDB(info_id, name, surname, birth, city, age) {
-
-}
-
-async function deleteUsersDB(info_id) {
-
-}
-
-async function patchUsersDB(info_id, dataFromClient) {
-
+async function createUserDB(name, age, email, phone, group) {
+    const { students } = await connect()
+    return await students.insertOne({ name: name, age: age, email: email, phone: phone, group: group });
 }
 
 
 
-
-module.exports = { getUsersDB, getUserByIdDB, createUsersDB, updateUsersDB, deleteUsersDB, patchUsersDB }
+module.exports = { getUsersDB, getUserByIdDB, createUserDB }
