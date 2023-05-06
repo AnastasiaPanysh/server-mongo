@@ -5,7 +5,7 @@ This is an Express.js server application with a MongoDB driver implementation us
 ## Installation
 1. Clone the repository: git clone https://github.com/AnastasiaPanysh/server-mongo.git
 2. Install dependencies: npm install 
-3. To start the server: nodemon index 
+3. To start the server: nodemon index   
 
 ## API
 This API exposes the following endpoints:
