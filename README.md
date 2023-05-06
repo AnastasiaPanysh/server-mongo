@@ -1,6 +1,6 @@
 # server-mongo
 
-This is a simple Express.js server application with a MongoDB driver implementation using the official MongoDB driver.
+This is an Express.js server application with a MongoDB driver implementation using the official MongoDB driver.
 
 ## Installation
 1. Clone the repository: git clone https://github.com/AnastasiaPanysh/server-mongo.git
