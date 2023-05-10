@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "nodemon": "nodemon index",
+    "prettier": "prettier --write \"**/*.js\"",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "^5.3.0",
+    "prettier": "^2.8.8",
     "swagger-ui-express": "^4.6.2"
   }
 }
